@@ -1,0 +1,30 @@
+# Python virtual environment
+backend/env/
+backend/venv/
+.venv/
+
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyd
+
+# VSCode settings
+.vscode/
+
+# Milvus / Docker volumes
+volumes/
+
+# Logs
+*.log
+logs/
+
+# Ignore all CSVs in data folder...
+data/*.csv
+
+# ...except your sample files
+!data/patents_sample.csv
+!data/papers_sample.csv
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
