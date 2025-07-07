@@ -106,12 +106,10 @@ Backend runs at: `http://localhost:8000`
 
 ## 📸 Screenshots
 
-> Put images in `assets/` folder and reference them like:
+![Search UI](./assets/ui.png)
+![Result Cards](./assets/result.png)
+![Result Cards](./assets/result2.png)
 
-```markdown
-![Search UI](./assets/search-ui.png)
-![Result Cards](./assets/result-cards.png)
-```
 
 ---
 

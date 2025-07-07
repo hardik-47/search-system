@@ -1,4 +1,4 @@
-<!-- components/ResultCard.vue -->
+
 <template>
   <div class="p-4 bg-white rounded shadow">
     <h2 class="text-xl font-semibold text-blue-700">{{ result.title }}</h2>

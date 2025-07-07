@@ -1,4 +1,4 @@
-<!-- components/SearchBar.vue -->
+
 <template>
   <div class="bg-white p-4 rounded-xl shadow flex flex-col gap-4">
     <input

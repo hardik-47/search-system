@@ -1,4 +1,4 @@
-// utils/api.js
+
 export async function searchDocuments(payload) {
   const res = await fetch('http://localhost:8000/search', {
     method: 'POST',

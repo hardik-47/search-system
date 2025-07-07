@@ -3,13 +3,13 @@ from pydantic import BaseModel
 from search_engine import search_milvus
 from fastapi.middleware.cors import CORSMiddleware
 
-# ✅ First, initialize the app
+#   initializing the app
 app = FastAPI()
 
-# ✅ Then, add CORS middleware
+# adding CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Or ["http://localhost:3000"] for stricter control
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -17,7 +17,7 @@ app.add_middleware(
 
 class SearchRequest(BaseModel):
     query: str
-    type: str  # "patents", "papers", or "both"
+    type: str  
 
 @app.post("/search")
 def search_documents(req: SearchRequest):

@@ -1,17 +1,17 @@
-# search_engine.py
+
 
 from embedder import generate_embeddings
 from milvus_client import connect_milvus
 from pymilvus import Collection
 import pandas as pd
 
-# Metadata file paths
+
 metadata_paths = {
     "patents": "../data/patents_sample.csv",
     "papers": "../data/papers_sample.csv"
 }
 
-# Load metadata
+
 metadata = {
     name: pd.read_csv(path).set_index("id") 
     for name, path in metadata_paths.items()
@@ -20,7 +20,7 @@ metadata = {
 def search_milvus(collection_name, query_text, top_k=50):
     connect_milvus()
     collection = Collection(collection_name)
-    collection.load()  # ✅ This ensures the collection is ready for search
+    collection.load()  
     query_embedding = generate_embeddings([query_text])[0]
 
     # Perform search

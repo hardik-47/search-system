@@ -1,4 +1,4 @@
-<!-- pages/index.vue -->
+
 <template>
   <div>
     <SearchBar @search="handleSearch" />
