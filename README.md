@@ -105,7 +105,7 @@ Backend runs at: `http://localhost:8000`
 ---
 
 
-## 📌 Approach Overview
+##  Approach Overview
 
 This project is a semantic search system designed for technical documents, such as patents and research papers. It allows researchers to input natural language queries and retrieve the top 50 most semantically similar documents using vector search.
 
@@ -118,7 +118,7 @@ This project is a semantic search system designed for technical documents, such 
 
 ---
 
-### 🔧 Architecture Overview
+###  Architecture Overview
 
 - **Frontend**: Built using NuxtJS with Tailwind CSS for a clean and responsive UI.
 - **Backend**: FastAPI serves as the API layer for search functionality.
@@ -128,7 +128,7 @@ This project is a semantic search system designed for technical documents, such 
 
 ---
 
-## 📌 Assumptions
+##  Assumptions
 
 - All document abstracts (from both patents and papers) are meaningful and suitable for embedding.
 - The top 50 returned documents provide sufficient semantic coverage for the user's query.
@@ -137,7 +137,7 @@ This project is a semantic search system designed for technical documents, such 
 
 ---
 
-## 📌 Challenges Faced
+##  Challenges Faced
 
 ### 1. Setting Up Milvus with Docker
 One of the initial hurdles was getting the Milvus standalone setup running correctly on a Windows system. It required understanding Docker Compose, ensuring all required services (`etcd`, `minio`, `milvus-standalone`) were correctly configured, and confirming Milvus was accessible via port `19530`.
@@ -153,7 +153,7 @@ There were instances where malformed payloads or missing fields caused FastAPI t
 
 ---
 
-## 📌 Trade-offs Made
+##  Trade-offs Made
 
 - **No Clustering/Heatmap in MVP**: The clustering and visualization part was deprioritized to focus on completing core semantic search functionality.
 -  **Used Simplified Metadata View**: Abstracts, titles, publication year, and citations are shown, keeping UI minimal for researcher focus.
