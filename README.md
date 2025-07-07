@@ -1,21 +1,21 @@
 
-# 🔍 Semantic Search System for Technical Documents
+#  Semantic Search System for Technical Documents
 
 This project is a **semantic search engine** designed for technical researchers to query and retrieve relevant **patents** and **research papers** using **natural language**. It supports document type filtering, relevance scoring, and displays metadata-rich results.
 
-## 🚀 Features
+##  Features
 
-- 🔎 Natural language search query input
-- 📚 Search across both patent and research paper datasets
-- 🧠 Embedding generation using Sentence Transformers
-- ⚡ Fast vector similarity search with Milvus
-- 🌐 REST API built with FastAPI
-- 💻 Frontend built using NuxtJS & Tailwind CSS
-- 🎨 Clean UI with metadata-rich result cards
+-  Natural language search query input
+-  Search across both patent and research paper datasets
+-  Embedding generation using Sentence Transformers
+-  Fast vector similarity search with Milvus
+-  REST API built with FastAPI
+-  Frontend built using NuxtJS & Tailwind CSS
+-  Clean UI with metadata-rich result cards
 
 ---
 
-## 🧰 Technology Stack
+## Technology Stack
 
 | Layer        | Technology             |
 |--------------|------------------------|
@@ -27,7 +27,7 @@ This project is a **semantic search engine** designed for technical researchers 
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 search-assignment/
@@ -51,7 +51,7 @@ search-assignment/
 
 ---
 
-## 🧪 How it Works
+##  How it Works
 
 1. User enters a technical query in the frontend.
 2. The query is embedded using Sentence Transformers.
@@ -60,7 +60,7 @@ search-assignment/
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### Prerequisites
 
@@ -104,7 +104,12 @@ Backend runs at: `http://localhost:8000`
 
 ---
 
-## 📸 Screenshots
+
+## 📌 Approach Overview
+
+This project is a semantic search system designed for technical documents, such as patents and research papers. It allows researchers to input natural language queries and retrieve the top 50 most semantically similar documents using vector search.
+
+## Screenshots
 
 ![Search UI](./assets/ui.png)
 ![Result Cards](./assets/result.png)
@@ -113,6 +118,50 @@ Backend runs at: `http://localhost:8000`
 
 ---
 
-## 📄 License
+### 🔧 Architecture Overview
 
-MIT License © 2025 Hardik Jain
+- **Frontend**: Built using NuxtJS with Tailwind CSS for a clean and responsive UI.
+- **Backend**: FastAPI serves as the API layer for search functionality.
+- **Vector Store**: Milvus is used to store dense vector embeddings for fast and scalable semantic search.
+- **Embeddings**: Sentence Transformers (`all-MiniLM-L6-v2`) are used to embed both queries and document abstracts into vector space.
+- **Data**: Cleaned and processed subsets from PatentsView and OpenAlex, each with 10k–20k rows, are used to populate Milvus.
+
+---
+
+## 📌 Assumptions
+
+- All document abstracts (from both patents and papers) are meaningful and suitable for embedding.
+- The top 50 returned documents provide sufficient semantic coverage for the user's query.
+- Users are researchers familiar with patent/paper content and metadata like citations and publication year.
+- Real-time clustering and heatmap generation are not included in this version.
+
+---
+
+## 📌 Challenges Faced
+
+### 1. Setting Up Milvus with Docker
+One of the initial hurdles was getting the Milvus standalone setup running correctly on a Windows system. It required understanding Docker Compose, ensuring all required services (`etcd`, `minio`, `milvus-standalone`) were correctly configured, and confirming Milvus was accessible via port `19530`.
+
+### 2. Data Preprocessing and Format Alignment
+The source datasets (PatentsView `.tsv` and OpenAlex JSON dumps) came in inconsistent formats. Cleaning and standardizing them into a unified structure with `id`, `abstract`, `title`, `citations`, and `pub_year` columns required careful preprocessing.
+
+### 3. CORS and API Communication:
+Ensuring proper `CORS` setup to allow communication between frontend and backend.
+
+### 4. Debugging FastAPI Errors (e.g., 422 Unprocessable Entity)
+There were instances where malformed payloads or missing fields caused FastAPI to raise HTTP 422 errors. Careful validation of frontend request structures using browser dev tools and logs helped isolate and fix these issues.
+
+---
+
+## 📌 Trade-offs Made
+
+- **No Clustering/Heatmap in MVP**: The clustering and visualization part was deprioritized to focus on completing core semantic search functionality.
+-  **Used Simplified Metadata View**: Abstracts, titles, publication year, and citations are shown, keeping UI minimal for researcher focus.
+- **No Authentication or User Data**: The app does not handle user accounts or saved search history to stay lightweight and focus on functionality.
+
+---
+
+## Summary
+
+The project achieves a clean, usable, and technically solid semantic search experience for patents and papers. It leverages best practices in modern backend and frontend development while balancing complexity and usability in its MVP scope.
+
